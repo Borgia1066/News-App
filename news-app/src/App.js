@@ -3,6 +3,7 @@ import { getArticles} from "./api";
 import { Container, Header } from "semantic-ui-react";
 import { ArticleList } from "./comp/ArticleList";
 import SearchBar from "./comp/searchbar";
+import BounceLoader from "react-spinners/BounceLoader";
 
 class App extends React.Component {
 
@@ -48,9 +49,13 @@ class App extends React.Component {
       <p style={{textAlign: "center"}}>
         News are from <a href="https://newsapi.org/">NewsAPI</a>
       </p>
-      {loading && (
-          <p style={{ textAlign: "center"}}>Searching for articles, Please wait</p>
-        )}
+      {loading && 
+      <div style={{display: "flex", justifyContent: "center",height: "80px",}}>
+        <BounceLoader size={40} color="aqua"/>
+        <h4 style={{display: "flex", margin: "10px"}}>
+          <b>Loading, Please Wait</b>
+        </h4>
+      </div>}
       {articles.length > 0 && <ArticleList articles={articles} />}
       {apiError && <p>Could not fetch any articles. Please try again.</p>}
     </Container>
