@@ -5,6 +5,7 @@ export const getBitcoinArticles = async () => {
     `https://newsapi.org/v2/everything?q=bitcoin&sortBy=publishedAt&apiKey=${NEWS_API_KEY}`
   );
   const json = await response.json();
+  console.log(json);
   return json;
 };
 

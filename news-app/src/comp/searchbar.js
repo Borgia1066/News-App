@@ -27,7 +27,7 @@ class SearchBar extends React.Component {
               value={this.state.searchTopic}
               onChange={this.handleChange}
             />
-            <Button type="submit" color="green">
+            <Button type="submit" color="blue">
               Search
             </Button>
           </Form.Group>

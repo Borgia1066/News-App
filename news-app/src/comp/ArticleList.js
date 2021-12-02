@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid, Header, Image, List } from "semantic-ui-react";
+import {Link} from "react-router-dom";
 
 export const ArticleItem = (e) => {
     const { article } = e;
@@ -7,7 +8,7 @@ export const ArticleItem = (e) => {
         <List.Item style={{ padding: 35 }}>
           <Grid>
             <Grid.Column
-              width={15}
+              width={10}
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -22,9 +23,12 @@ export const ArticleItem = (e) => {
                   <a href={article.url}>{article.source.name}</a>
                 </List.Item>
                 <List.Item>{article.publishedAt.split("T")[0]}</List.Item>
+                <List.Item>
+                  <Link to="/ArticlePage">Read more</Link>
+                </List.Item>
               </List>
             </Grid.Column>
-            <Grid.Column width={5}>
+            <Grid.Column width={6}>
               <Image src={article.urlToImage} />
             </Grid.Column>
           </Grid>
@@ -34,7 +38,7 @@ export const ArticleItem = (e) => {
 
 export const ArticleList = (e) => {
     return (
-        <List divided style = {{maxWidth: 800, margin: "0 auto"}}>
+        <List divided style = {{maxWidth: 1000, margin: "0 auto"}}>
             {e.articles.map((article, index) => (
                  <ArticleItem article={article} key={article.title + index} />
             ))}
