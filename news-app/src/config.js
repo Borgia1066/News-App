@@ -1,0 +1,1 @@
+export const NEWS_API_KEY = "2abd5c577ebe4348a290d16176ef4c93";
